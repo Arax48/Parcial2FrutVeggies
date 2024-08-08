@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package mercado;
+package mercado.view;
 
 import javax.swing.JOptionPane;
 import java.sql.*;
@@ -20,6 +20,8 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         jComboBox1.setVisible(false);
         jComboBox2.setVisible(false);
+        jTextField1.setVisible(false);
+        
     }
 
     /**
@@ -59,6 +61,11 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Vitamina C", "Vitamina K", "Vitamina A", "Antioxidantes", " " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
         jScrollPane1.setViewportView(jList1);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manazana", "Pera", "Mora", "Frambuesa", "Papaya", "Zapote", "Pitaya", "Mandarina", "Naranja", "Arandanos" }));
@@ -71,6 +78,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton4.setText("Ver Descripción");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Description");
 
@@ -140,14 +152,16 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jTextField1.setText(jComboBox1.getSelectedItem().toString());
+        
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/alimentos", "root", "_3GTh=FB<s{7l6B");
             
             String sql = "insert into alimentos values (?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
+            
             pstmt.setString(1,  jComboBox1.getSelectedItem().toString());
+            
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Agregado");
             conn.close();
@@ -166,6 +180,14 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         jComboBox2.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //String selection = jComboBox1 ;
+        
+        //if (  ){]
+            
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -118,7 +118,13 @@
         <Component class="javax.swing.JList" name="jList1">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="0"/>
+              <StringArray count="5">
+                <StringItem index="0" value="Vitamina C"/>
+                <StringItem index="1" value="Vitamina K"/>
+                <StringItem index="2" value="Vitamina A"/>
+                <StringItem index="3" value="Antioxidantes"/>
+                <StringItem index="4" value=" "/>
+              </StringArray>
             </Property>
           </Properties>
           <AuxValues>
@@ -160,6 +166,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver Descripci&#xf3;n"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
