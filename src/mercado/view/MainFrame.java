@@ -165,7 +165,7 @@ public class MainFrame extends javax.swing.JFrame {
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Agregado");
             conn.close();
-            
+            System.out.println("Conexion establecida");
         } 
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
